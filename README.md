@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Finance Dashboard
+
+A personal finance tracking dashboard built with **Next.js 16**, **Chart.js**, and **Tailwind CSS**.
+
+## Features
+
+- **Live charts** : Balance trend (line) and expense breakdown (pie) that update instantly when transactions change
+- **Persistent storage** : Transactions saved to `localStorage`; survive page refreshes
+- **Role-based access** : Switch between **Admin** (can add transactions) and **Viewer** (read-only)
+- **Filter & search** : Filter transactions by type (income/expense) and search by category
+- **Quick Insights** : Highest spending category, expense-to-income ratio, and net savings rate
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | JavaScript |
+| Styling | Tailwind CSS v4 |
+| Charts | Chart.js + react-chartjs-2 |
+| State | React Context API |
+| Persistence | localStorage |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/              # Next.js app router (layout, page, globals.css)
+├── components/
+│   ├── DashboardOverview.js   # Summary cards + charts
+│   ├── InsightsSection.js     # Quick financial insights
+│   ├── TransactionsSection.js # Transaction table + add form
+│   └── Header.js              # Nav with role switcher
+├── context/
+│   └── FinanceContext.js      # Global state + localStorage sync
+└── data/
+    └── transactions.js        # Seed/initial transaction data
+```
 
-## Learn More
+## Adding Transactions
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Switch the role to **Admin** using the toggle in the header, then use the form above the transaction table to add a new entry. All changes reflect immediately in the charts and persist across refreshes.
