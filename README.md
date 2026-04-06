@@ -2,6 +2,8 @@
 
 A personal finance tracking dashboard built with **Next.js 16**, **Chart.js**, and **Tailwind CSS**.
 
+### Live Link : https://finance-dashboard-iota-hazel.vercel.app
+
 ## Features
 
 - **Live charts** : Balance trend (line) and expense breakdown (pie) that update instantly when transactions change
